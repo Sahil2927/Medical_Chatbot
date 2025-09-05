@@ -11,5 +11,5 @@ python-dotenv
 pinecone-client
 groq
 huggingface-hub
-python-3.11.8
+
 
