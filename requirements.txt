@@ -10,6 +10,8 @@ python-dotenv==1.1.0
 pinecone-client==3.2.2
 groq
 huggingface-hub
+-e .
+
 
 
 
