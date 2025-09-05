@@ -44,16 +44,13 @@ def text_split(extracted_data):
 
 
 #Download the Embeddings from HuggingFace 
-from langchain_community.embeddings import HuggingFaceInferenceEmbeddings
-import os
+from langchain_community.embeddings import HuggingFaceEmbeddings
 
 def download_hugging_face_embeddings():
     """
-    Use HuggingFace Inference API for embeddings.
+    Load HuggingFace embeddings locally using sentence-transformers.
     """
     model_name = "sentence-transformers/all-MiniLM-L6-v2"
-    embeddings = HuggingFaceInferenceEmbeddings(
-        api_key=os.environ["HUGGINGFACE_API_KEY"],  # set this in Render
-        model_name=model_name
-    )
+    embeddings = HuggingFaceEmbeddings(model_name=model_name)
     return embeddings
+

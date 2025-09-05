@@ -1,8 +1,8 @@
 flask
 gunicorn
 langchain
-langchain-community
 langchain-pinecone
+langchain-community
 langchain-openai
 langchain-groq
 sentence-transformers
