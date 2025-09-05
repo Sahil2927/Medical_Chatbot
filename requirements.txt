@@ -12,3 +12,4 @@ pinecone-client
 groq
 huggingface-hub
 
+
