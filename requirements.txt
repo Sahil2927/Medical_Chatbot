@@ -1,7 +1,7 @@
 flask==3.1.1
-gunicorn
+gunicorn==23.0.0
 langchain==0.3.26
-langchain-community>=0.3.33
+langchain-community==0.3.33
 langchain-pinecone==0.2.8
 langchain-openai==0.3.24
 langchain-groq==0.3.7
@@ -11,6 +11,7 @@ pinecone-client==3.2.2
 groq
 huggingface-hub
 -e .
+
 
 
 
