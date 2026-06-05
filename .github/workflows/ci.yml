@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: |
+            requirements.txt
+            requirements-dev.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt -r requirements-dev.txt
+
+      - name: Run tests
+        run: pytest -q
+        env:
+          PINECONE_API_KEY: test-pinecone-key
+          GROQ_API_KEY: test-groq-key
+          DATABASE_URL: sqlite:///:memory:
+          RATE_LIMIT_PER_MINUTE: "0"
+          LAZY_RAG_INIT: "true"
+          ENABLE_MOCK_STATUS: "true"
+          SKIP_RAG_ON_STARTUP: "true"
