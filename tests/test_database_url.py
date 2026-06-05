@@ -20,3 +20,12 @@ def test_normalize_postgresql_url_without_driver():
 def test_passthrough_sqlalchemy_psycopg2_url():
     url = "postgresql+psycopg2://postgres:secret@localhost/mediassist"
     assert normalize_database_url(url) == url
+
+
+def test_render_postgres_url_adds_ssl_mode(monkeypatch):
+    monkeypatch.setenv("ENVIRONMENT", "production")
+    url = "postgres://user:pass@dpg-abc.oregon-postgres.render.com/mediassist"
+    assert (
+        normalize_database_url(url)
+        == "postgresql+psycopg2://user:pass@dpg-abc.oregon-postgres.render.com/mediassist?sslmode=require"
+    )

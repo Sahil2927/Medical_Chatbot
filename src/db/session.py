@@ -8,13 +8,23 @@ from sqlalchemy.pool import StaticPool
 from src.db.base import Base
 
 
+def _needs_ssl_mode(url: str) -> bool:
+    if os.getenv("ENVIRONMENT", "").strip().lower() == "production":
+        return True
+    lowered = url.lower()
+    return "render.com" in lowered or "ondigitalocean.com" in lowered
+
+
 def normalize_database_url(url: str) -> str:
     """Accept Render/Heroku ``postgres://`` URLs for SQLAlchemy + psycopg2."""
     normalized = url.strip()
     if normalized.startswith("postgres://"):
-        return "postgresql+psycopg2://" + normalized[len("postgres://") :]
-    if normalized.startswith("postgresql://") and "+psycopg2" not in normalized:
-        return "postgresql+psycopg2://" + normalized[len("postgresql://") :]
+        normalized = "postgresql+psycopg2://" + normalized[len("postgres://") :]
+    elif normalized.startswith("postgresql://") and "+psycopg2" not in normalized:
+        normalized = "postgresql+psycopg2://" + normalized[len("postgresql://") :]
+    if _needs_ssl_mode(normalized) and "sslmode=" not in normalized:
+        separator = "&" if "?" in normalized else "?"
+        normalized = f"{normalized}{separator}sslmode=require"
     return normalized
 
 
