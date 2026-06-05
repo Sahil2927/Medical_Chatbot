@@ -101,12 +101,23 @@ Legacy Jinja chat (only when `frontend/dist/` is missing): http://localhost:8080
 
 ## Deploy (Render)
 
-1. **New Web Service** (not Blueprint) → connect this repo.
+**Option A — Blueprint (recommended):**
+
+1. [Render Dashboard](https://dashboard.render.com) → **New** → **Blueprint**
+2. Connect `Sahil2927/Medical_Chatbot` → apply `render.yaml`
+3. When prompted, set **sync: false** secrets: `PINECONE_API_KEY`, `GROQ_API_KEY`
+4. After deploy, open the service URL (MediAssist UI + API same origin)
+
+**Option B — Manual Web Service:**
+
+1. **New Web Service** → connect repo, runtime **Python 3.11**
 2. **Build:** `pip install -r requirements.txt && cd frontend && npm install && npm run build`
 3. **Start:** `uvicorn app:app --host 0.0.0.0 --port $PORT --workers 1`
-4. Set environment variables `PINECONE_API_KEY`, `GROQ_API_KEY`, `DATABASE_URL`, etc.
-5. Ensure Pinecone index `medical-chatbot` exists (run `store_index.py` locally first).
-6. Open the service URL — MediAssist UI is served from `frontend/dist/` on the same host.
+4. Add **PostgreSQL** (free) and set `DATABASE_URL` from the database connection string
+5. Set `ENVIRONMENT=production`, `LAZY_RAG_INIT=true`, Pinecone index names, API keys
+6. Pinecone indexes must already exist (`store_index.py` / `store_index_to_pinecone.py` locally)
+
+**Note:** First RAG request downloads embeddings (~400MB RAM). If the free web tier OOMs, upgrade to **Starter** ($7/mo).
 
 ## Troubleshooting
 

@@ -8,11 +8,22 @@ from sqlalchemy.pool import StaticPool
 from src.db.base import Base
 
 
+def normalize_database_url(url: str) -> str:
+    """Accept Render/Heroku ``postgres://`` URLs for SQLAlchemy + psycopg2."""
+    normalized = url.strip()
+    if normalized.startswith("postgres://"):
+        return "postgresql+psycopg2://" + normalized[len("postgres://") :]
+    if normalized.startswith("postgresql://") and "+psycopg2" not in normalized:
+        return "postgresql+psycopg2://" + normalized[len("postgresql://") :]
+    return normalized
+
+
 def get_database_url() -> str:
-    return os.getenv(
+    raw = os.getenv(
         "DATABASE_URL",
         "postgresql+psycopg2://postgres:postgres@localhost:5432/mediassist",
-    ).strip()
+    )
+    return normalize_database_url(raw)
 
 
 @lru_cache
