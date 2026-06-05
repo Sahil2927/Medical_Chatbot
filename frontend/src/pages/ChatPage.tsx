@@ -27,6 +27,10 @@ export function ChatPage() {
     attachFile,
   } = useChat();
 
+  const activeConversation = conversations.find(
+    (conversation) => conversation.id === activeConversationId,
+  );
+
   return (
     <AppShell
       conversations={conversations}
@@ -36,7 +40,11 @@ export function ChatPage() {
         void selectConversation(id);
       }}
     >
-      <ChatHeader />
+      <ChatHeader
+        conversationTitle={activeConversation?.title}
+        mode={activeConversation?.mode}
+        isWelcome={showWelcome && !isLoading}
+      />
       {error && <ErrorBanner message={error} onDismiss={dismissError} />}
       {isLoading ? (
         <LoadingState label="Connecting to MediAssist…" />
