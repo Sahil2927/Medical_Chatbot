@@ -1,0 +1,26 @@
+{
+  "default_region": "US",
+  "helplines": [
+    {
+      "name": "988 Suicide & Crisis Lifeline",
+      "phone": "988",
+      "text": "988",
+      "url": "https://988lifeline.org",
+      "region": "US"
+    },
+    {
+      "name": "Crisis Text Line",
+      "phone": null,
+      "text": "HOME to 741741",
+      "url": "https://www.crisistextline.org",
+      "region": "US"
+    },
+    {
+      "name": "Emergency services",
+      "phone": "911",
+      "text": null,
+      "url": null,
+      "region": "US"
+    }
+  ]
+}

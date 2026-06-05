@@ -201,6 +201,13 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
+# Node / MediAssist frontend
+frontend/node_modules/
+frontend/dist/
+
+# User-uploaded attachments (Phase 3)
+data/uploads/
+
 # Marimo
 marimo/_static/
 marimo/_lsp/

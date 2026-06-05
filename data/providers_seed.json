@@ -1,0 +1,20 @@
+[
+  {
+    "id": "prov-general-001",
+    "name": "Dr. Patel",
+    "specialty": "General Practice",
+    "next_slot": "Thu 9:00 AM"
+  },
+  {
+    "id": "prov-cardio-001",
+    "name": "Dr. Nguyen",
+    "specialty": "Cardiology",
+    "next_slot": "Fri 2:30 PM"
+  },
+  {
+    "id": "prov-derm-001",
+    "name": "Dr. Chen",
+    "specialty": "Dermatology",
+    "next_slot": "Mon 11:00 AM"
+  }
+]

@@ -1,0 +1,164 @@
+{
+  "tests": [
+    {
+      "id": "glucose",
+      "display_name": "Glucose (fasting)",
+      "aliases": ["glucose", "blood sugar", "fasting glucose", "blood glucose", "sugar"],
+      "default_unit": "mg/dL",
+      "accepted_units": ["mg/dl"],
+      "reference": {
+        "min": 70,
+        "max": 99,
+        "unit": "mg/dL",
+        "label": "70–99 mg/dL (adult fasting; lab-specific)"
+      },
+      "plausible": { "min": 50, "max": 500, "unit": "mg/dL" },
+      "notes": {
+        "low": "Below typical fasting range — discuss with your clinician; may need context (meals, diabetes care).",
+        "normal": "Within a common adult fasting range — confirm against your lab report.",
+        "high": "Above typical fasting range — prediabetes/diabetes screening may be discussed with your clinician.",
+        "unknown": "Compare to the reference interval printed on your report."
+      }
+    },
+    {
+      "id": "hemoglobin",
+      "display_name": "Hemoglobin",
+      "aliases": ["hemoglobin", "hgb", "hb", "haemoglobin"],
+      "default_unit": "g/dL",
+      "accepted_units": ["g/dl", "g/dl"],
+      "reference": {
+        "min": 12.0,
+        "max": 17.5,
+        "unit": "g/dL",
+        "label": "12.0–17.5 g/dL (varies by age/sex; lab-specific)"
+      },
+      "plausible": { "min": 5, "max": 22, "unit": "g/dL" },
+      "notes": {
+        "low": "May be discussed in anemia workups — interpretation depends on age, sex, and symptoms.",
+        "normal": "Within a broad adult range — your lab report range is authoritative.",
+        "high": "Elevated values can have several causes — follow up with your clinician.",
+        "unknown": "Ranges differ by age and sex; use your printed report."
+      }
+    },
+    {
+      "id": "total_cholesterol",
+      "display_name": "Total cholesterol",
+      "aliases": ["total cholesterol", "cholesterol", "chol"],
+      "default_unit": "mg/dL",
+      "accepted_units": ["mg/dl"],
+      "reference": {
+        "min": 0,
+        "max": 200,
+        "unit": "mg/dL",
+        "label": "under 200 mg/dL often cited as desirable (risk-based; lab-specific)"
+      },
+      "plausible": { "min": 80, "max": 400, "unit": "mg/dL" },
+      "notes": {
+        "low": "Low cholesterol is less commonly emphasized — discuss full lipid panel with your clinician.",
+        "normal": "Often discussed relative to cardiovascular risk and full lipid panel.",
+        "high": "May warrant lifestyle or medication discussion — targets depend on overall risk.",
+        "unknown": "Lipid goals are individualized — consult your clinician."
+      }
+    },
+    {
+      "id": "ldl",
+      "display_name": "LDL cholesterol",
+      "aliases": ["ldl", "ldl cholesterol", "ldl-c"],
+      "default_unit": "mg/dL",
+      "accepted_units": ["mg/dl"],
+      "reference": {
+        "min": 0,
+        "max": 100,
+        "unit": "mg/dL",
+        "label": "under 100 mg/dL often cited for many adults (risk-based)"
+      },
+      "plausible": { "min": 40, "max": 300, "unit": "mg/dL" },
+      "notes": {
+        "low": "Very low LDL may be intentional on therapy — discuss with your prescriber.",
+        "normal": "Within a commonly cited target for many adults — risk-based targets vary.",
+        "high": "Elevated LDL is a focus in cardiovascular prevention — discuss with your clinician.",
+        "unknown": "Targets depend on risk factors — use your clinician's plan."
+      }
+    },
+    {
+      "id": "hdl",
+      "display_name": "HDL cholesterol",
+      "aliases": ["hdl", "hdl cholesterol", "hdl-c"],
+      "default_unit": "mg/dL",
+      "accepted_units": ["mg/dl"],
+      "reference": {
+        "min": 40,
+        "max": 999,
+        "unit": "mg/dL",
+        "label": "40 mg/dL or higher often cited for men; 50+ for women (lab-specific)"
+      },
+      "plausible": { "min": 20, "max": 120, "unit": "mg/dL" },
+      "notes": {
+        "low": "Low HDL is often discussed in cardiovascular risk assessment.",
+        "normal": "Higher HDL is generally favorable — interpretation is risk-based.",
+        "high": "Very high HDL is uncommon — your clinician interprets the full panel.",
+        "unknown": "HDL is interpreted with other lipids and risk factors."
+      }
+    },
+    {
+      "id": "creatinine",
+      "display_name": "Creatinine",
+      "aliases": ["creatinine", "serum creatinine", "creat"],
+      "default_unit": "mg/dL",
+      "accepted_units": ["mg/dl"],
+      "reference": {
+        "min": 0.6,
+        "max": 1.3,
+        "unit": "mg/dL",
+        "label": "0.6–1.3 mg/dL (varies by muscle mass, age, sex)"
+      },
+      "plausible": { "min": 0.3, "max": 3.0, "unit": "mg/dL" },
+      "notes": {
+        "low": "Low creatinine is often less concerning — context matters.",
+        "normal": "Within a typical adult range — kidney function is interpreted with eGFR and history.",
+        "high": "May prompt kidney function review — discuss with your clinician.",
+        "unknown": "Kidney markers require clinical context."
+      }
+    },
+    {
+      "id": "vitamin_d",
+      "display_name": "Vitamin D (25-hydroxy)",
+      "aliases": ["vitamin d", "25-hydroxy", "vitamin d 25-hydroxy", "25 hydroxy"],
+      "default_unit": "ng/mL",
+      "accepted_units": ["ng/ml"],
+      "reference": {
+        "min": 30,
+        "max": 100,
+        "unit": "ng/mL",
+        "label": "30–100 ng/mL (lab-specific)"
+      },
+      "plausible": { "min": 5, "max": 150, "unit": "ng/mL" },
+      "notes": {
+        "low": "Below a common sufficient range — supplementation may be discussed with your clinician.",
+        "normal": "Within a commonly cited sufficient range — confirm against your lab report.",
+        "high": "Elevated levels may need clinical context — discuss with your clinician.",
+        "unknown": "Compare to the reference interval on your report."
+      }
+    },
+    {
+      "id": "tsh",
+      "display_name": "TSH",
+      "aliases": ["tsh", "thyroid stimulating hormone", "thyroid tsh"],
+      "default_unit": "mIU/L",
+      "accepted_units": ["miu/l", "µiu/ml", "uiu/ml"],
+      "reference": {
+        "min": 0.4,
+        "max": 4.0,
+        "unit": "mIU/L",
+        "label": "0.4–4.0 mIU/L (lab-specific)"
+      },
+      "plausible": { "min": 0.01, "max": 50, "unit": "mIU/L" },
+      "notes": {
+        "low": "Low TSH may relate to hyperthyroidism — requires clinical correlation.",
+        "normal": "Within a common reference range — symptoms and free T4 matter.",
+        "high": "High TSH may relate to hypothyroidism — discuss testing with your clinician.",
+        "unknown": "Thyroid tests are interpreted as a panel."
+      }
+    }
+  ]
+}
