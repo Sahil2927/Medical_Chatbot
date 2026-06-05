@@ -31,7 +31,7 @@ jobs:
         env:
           PINECONE_API_KEY: test-pinecone-key
           GROQ_API_KEY: test-groq-key
-          DATABASE_URL: sqlite:///:memory:
+          DATABASE_URL: "sqlite:///:memory:"
           RATE_LIMIT_PER_MINUTE: "0"
           LAZY_RAG_INIT: "true"
           ENABLE_MOCK_STATUS: "true"
